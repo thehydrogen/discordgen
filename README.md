@@ -1,0 +1,2 @@
+# bulmagen
+✨ - Bulma website generator
