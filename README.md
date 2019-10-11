@@ -1,5 +1,5 @@
-# Bulmagen
-✨ - Simple Bulma website generator
+# discordgen
+✨ - Get started with Discord.js quickly!
 
 ## Setup
 First, install `discordgen` as a global package with npm
