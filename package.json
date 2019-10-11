@@ -1,0 +1,28 @@
+{
+  "name": "discordgen",
+  "version": "0.1.0",
+  "description": "Create a bot in just under a mintue.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thehydrogen/discordgen.git"
+  },
+  "author": "@kenhydrogen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thehydrogen/discordgen/issues"
+  },
+  "homepage": "https://github.com/thehydrogen/discordgen#readme",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "figlet": "^1.2.4",
+    "inquirer": "^7.0.0",
+    "shelljs": "^0.8.3"
+  },
+  "bin": {
+    "discordgen": "./index.js"
+  }
+}
