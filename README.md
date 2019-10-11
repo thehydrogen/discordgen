@@ -2,7 +2,7 @@
 ✨ - Simple Bulma website generator
 
 ## Setup
-First, install `bulmagen` as a global package with npm
+First, install `discordgen` as a global package with npm
 ```
-npm i -G bulmagen
+npm i -G discordgen
 ```
