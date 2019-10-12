@@ -16,6 +16,6 @@ the process of setting up your new bot. Once you complete the setup process, run
 [Discord Developer](https://discordapp.com/developers/applications)
 
 ## Running the bot
-Once you've completed setting up and configuring your bot, run it with `discordgen run`. This starts it with a PM2 process. If you don't have that, simply run it with `node .`
+Once you've completed setting up and configuring your bot, run it with `discordgen run`. This starts it with a PM2 process. If you don't want that, simply run it with `node .`
 
 ***A [Hydrogen](https://thehydrogen.xyz) Project***
