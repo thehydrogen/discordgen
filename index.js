@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 
 /*
--= discordgen =-
-Get started with
-Discord.js quickly!
+    -= discordgen =-
+    Get started with
+    Discord.js quickly!
 
-A open-source project
-by @kenhydrogen.
+    A open-source project
+    by @kenhydrogen.
 */
 
 const inquirer = require('inquirer');
@@ -14,47 +14,29 @@ const chalk = require('chalk');
 const figlet = require('figlet');
 const shell = require('shelljs');
 
-
-const askQuestions = () => {
-	const questions = [
-		{
-			name: "NAME",
-			type: "input",
-			message: "What is the name of your new bot?"
-		},
-		{
-			type: "list",
-			name: "TYPE",
-			message: "What type of bot are you making?",
-			choices: ['moderation', 'fun', 'other'],
-			filter: val => {
-				return val.split(".")[1];
-			}
-		}
-	];
-
-	return inquirer.prompt(questions);
-};  
-
 const run = async () => {
-	figlet('dgen', async (err, res) => {
-		if (err) return console.log(chalk.red('[ascii] could not print'))
-		chalk.cyan(res);
-	})
+    if (!process.argv[2]) {
+        await figlet('dgen', async (err, res) => {
+            if (err) return console.log(chalk.red('[ascii] could not print'))
+            console.log(chalk.cyan(res));
+        })
 
-	let answers = await askQuestions();
-	const { NAME, TYPE } = answers;
+        setTimeout(async () => {
+            await console.log(chalk.blue('Get started with Discord.js quickly!\n'))
+            await require('fs').readdirSync(`${__dirname}/src/`).forEach(async command => {
+                let cmdName = await command.replace('.js', '');
+                let cmd = await require(`./src/${command}`)
 
-	console.log(chalk.blue('\n[setup] Alright! I\'m setting up your bot for you.'))
-	console.log(chalk.yellow('[git] If you don\'t have Git installed, this process will fail.'))
-
-	require('child_process').exec(`git clone -b t-${TYPE} https://github.com/thehydrogen/discordgen.git `, async (err, stdout, stderr) => {
-		if (err) {
-			console.log(chalk.red(`[setup] Downloading files failed, likely due to Git not being isntalled.`))
-			return console.log(chalk.red(`Stderr: ${stderr}`))
-		}
-		await console.log(chalk.green('It seems like things have worked out! Now run "discordgen configure" to configure your bot!'))
-	})
+                await console.log(chalk.magenta(`${cmdName} - ${cmd.info.desc}`))
+            })
+        }, 1500)
+    } else {
+        try {
+            await require(`./src/${process.argv[2]}`).exec()
+        } catch(e) {
+            console.log(chalk.red('Unknown command! Check for any misspellings or typos?'))
+        }
+    }
 }
 
 run();
